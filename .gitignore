@@ -1,0 +1,5 @@
+node_modules/
+.env
+*.log
+docs/proofs/*.mp4
+docs/proofs/*.har

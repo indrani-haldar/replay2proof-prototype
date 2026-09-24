@@ -1,0 +1,16 @@
+{
+  "name": "replay2proof-demo",
+  "private": true,
+  "scripts": {
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  },
+  "dependencies": {
+    "chromium": "^3.0.3",
+    "install": "^0.13.0",
+    "npx": "^10.2.2",
+    "playwright": "^1.63.0"
+  }
+}

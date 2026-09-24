@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Replay2Proof Demo</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 0; background: #f7f8fa; color: #1d1d1f; }
+      main { max-width: 720px; margin: 80px auto; padding: 32px; background: white; border-radius: 16px; box-shadow: 0 8px 30px #0001; }
+      button { background: #1473e6; border: 0; border-radius: 8px; color: white; padding: 12px 20px; font-size: 16px; cursor: pointer; }
+      button:hover { background: #0d66d0; }
+      #download-status { min-height: 24px; margin-top: 20px; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Replay2Proof prototype</p>
+      <h1>Export report</h1>
+      <p>Click Export to download the report.</p>
+      <button id="export-button" data-testid="export-button">Export</button>
+      <p id="download-status" data-testid="download-status" aria-live="polite"></p>
+    </main>
+    <script>
+      // DEMO BUG: the button does not update the status.
+      // In the fix branch, replace the handler with:
+      // document.querySelector('#download-status').textContent = 'Download started';
+      document.querySelector('#export-button').addEventListener('click', () => {});
+    </script>
+  </body>
+</html>
