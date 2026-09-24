@@ -1,4 +1,4 @@
-name: Deploy Replay2Proof Demo to GitHub Pages
+name: Deploy Replay2Proof Demo
 
 on:
   push:
@@ -13,11 +13,10 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
-    name: Deploy demo application
     runs-on: ubuntu-latest
 
     environment:
@@ -25,24 +24,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Verify application entry file
-        run: |
-          test -f site/index.html
-          echo "site/index.html found"
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Add .nojekyll
-        run: touch site/.nojekyll
-
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload app folder
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: ./site
+          path: ./app
 
       - name: Deploy to GitHub Pages
         id: deployment
